@@ -1,0 +1,7 @@
+site_name: 南宫春水的博客
+site_url: https://Martinbits007.github.io
+
+theme: material
+nav:
+  - 首页: index.md
+  - 第一篇博客: START.md
