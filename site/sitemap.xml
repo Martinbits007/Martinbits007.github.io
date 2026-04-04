@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://Martinbits007.github.io/</loc>
-         <lastmod>2026-03-14</lastmod>
+         <lastmod>2026-03-29</lastmod>
+    </url>
+    <url>
+         <loc>https://Martinbits007.github.io/Leetcode/</loc>
+         <lastmod>2026-03-29</lastmod>
     </url>
     <url>
          <loc>https://Martinbits007.github.io/START/</loc>
-         <lastmod>2026-03-14</lastmod>
+         <lastmod>2026-03-29</lastmod>
+    </url>
+    <url>
+         <loc>https://Martinbits007.github.io/python/</loc>
+         <lastmod>2026-03-29</lastmod>
     </url>
 </urlset>
