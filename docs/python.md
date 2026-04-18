@@ -1,4 +1,4 @@
-from time import daylight
+from socket import send_fdsfrom time import daylight
 
 # python学习日志
 
@@ -29,6 +29,7 @@ print(None)
 
 2.变量：在定义变量时，不用表明变量名，在python中变量属于动态变量
 
+补充：常量也是一种变量，必须大写，PI=3.14
 eg.      
 num=1114.1
 
@@ -207,6 +208,10 @@ else:
 ```
 注意：while循环循环次数一般是未知的，只知道循环开始和循环结束的条件，而for则是对一个已知的数据集进行循环
 
+补充：
+
+比如：我要让一个_重复30次可以用
+print(" _ " * 30)
 2.range语句
 ```python
 range(5)#用法一：从0开始一直到5
@@ -447,8 +452,135 @@ def circle_area(r):
        return area
 c_area = circle_area(10)
 print(c_area)
+```
+#### 4.1.2函数的说明文档
+1.格式
+```python
+def circle_area(r):
+       """
+       该函数是计算圆的面积的
+       :param area:圆的面积
+       :return: 圆的的面积
+       """
+       area=3.14*r*r
+       return area
+c_area = circle_area(10)
+print(c_area)
+# help(circle_area)
+```
+#### 4.1.3函数的嵌套
+1.简单的嵌套就是调用函数，而这里写的是递归
 
+#### 4.1.4函数中变量的作用域
+1.在函数内部定义的变量是内部变量
+
+#### 4.1.5函数的传参方式
+1.位置参数：
+```python
+def reg_stu(name,age,gender,city):
+    print("你好")
+    return
+reg_stu("小明",16,"男","石家庄")
 ```
 
+2.关键字参数：
+```python
+def reg_stu(name,age,gender,city):
+    print("你好")
+    return
+stu = reg_stu(name="小明",age=16,gender="男",city="石家庄")#这个时候传参就不用按照位置传参了
+```
+
+3.位置传参+关键字参数
+```python
+#位置参数+关键字参数
+```
+4.函数的默认参数
+（1）默认参数也称为缺省参数，定义函数时，为参数提供默认值，可以不传递有默认值的参数
+
+```python
+def reg_stu(name,age,gender,city="石家庄"):#默认参数必须放在未设置参数后面
+    print("你好")
+    return
+stu = reg_stu(name="小明",age=16,gender="男")#如果说传递了参数就会修改为默认参数
+```
+
+5.可变参数/不定长参数
+（1）位置传递
+
+```python
+def cacl_data(*args):#基于位置参数传递的会封装到元组中
+       min_data = min(args)
+       return min_data
+data = cacl_data(1,3,5,76,12,3,4,6)
+print(data)
+```
+
+（2）关键字传递
+
+```python
+def cacl_data(*args,**kwargs): #会封装到字典中，也就是键值对
+       min_data = min(args)
+       return min_data
+data = cacl_data(1,3,5,76,12,3,4,6,round=2,count=0)
+print(data)
+```
+
+6.参数类型
+（1）普通参数：
+
+数字、布尔、字符串、列表、元组、集合、字典
+
+（2）特殊参数：
+
+函数
+```python
+def add(x,y):
+       return x+y
+
+def cacl(x,y,oper)#高阶函数
+       return oper(x,y)
+
+sum = oper(1,2,add)
 
 
+```
+7.匿名函数
+（1）格式：lambda 参数列表 : 函数体
+
+eg.lambda x,y : x + y
+
+作用：用于简化函数的书写，通常用于高阶函数
+
+## 第五章 模块 
+### 5.1模块入门
+1.模块的定义：一个.py文件就是一个模块，模块是python中最基本的组织单位
+
+2.格式：
+
+（1）import 模块名 import random , os
+
+（2）import 模块名 as 别名  这个是给模块起一个别名
+
+（3）from 模块名 import 功能名
+
+（4）from 模块名 import 功能名 as 别名
+
+（5）from 模块名 import *  导入该模块的所有的功能
+
+```python
+#方法一
+import random#首先导入random模块
+import random as rd#对模块名重新命名
+
+for i range(100):
+       print(rd.randint(1,100))
+
+#方法二
+from random import randint#导入模块的方法
+for i range(100):
+       print(randint(1,100))
+```
+
+### 5.2自定义模块
+1.同上面，直接import 模块名，引用时直接 模块名.变量/方法
