@@ -6,3 +6,5 @@ nav:
   - 首页: index.md
   - 第一篇博客: START.md
   - python学习日记: python.md
+  - 滚动新闻web开发日志: new_apps.md
+  - fastapi开发框架：Fastapi.md

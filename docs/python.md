@@ -1,4 +1,4 @@
-from socket import send_fdsfrom time import daylight
+from ctypes import c_int16from socket import send_fdsfrom time import daylight
 
 # python学习日志
 
@@ -552,7 +552,7 @@ eg.lambda x,y : x + y
 
 作用：用于简化函数的书写，通常用于高阶函数
 
-## 第五章 模块 
+## 第五章 模块与包
 ### 5.1模块入门
 1.模块的定义：一个.py文件就是一个模块，模块是python中最基本的组织单位
 
@@ -584,3 +584,74 @@ for i range(100):
 
 ### 5.2自定义模块
 1.同上面，直接import 模块名，引用时直接 模块名.变量/方法
+
+2.测试函数：因为在一些模块中有一些测试函数不想让其在导入其他文档让其不显示，可加入__name__（表示运行该模块时__name__为__main__)
+
+注意：这个也是一个特殊变量
+```python
+if __name__ = '__main__':#也可以用单引号
+       log_separator()
+
+```
+
+3.控制导入模块的功能
+（1）__all__是一个模块级别的特殊变量，用于指定 from 模块名 import * 时会导入哪些功能
+
+```python
+__all__ = ["log_1","log_2"]
+
+```
+### 5.2软件包
+1.定义：包的本质就是一个文件夹，文件夹中可以包含若干个python模块，但是还包含了一个特殊的文件__init__.py
+
+这个就是描述包中的信息的
+
+2.格式：
+
+import 包名.模块名  包名.模块名.功能名
+
+from 包名 import 模块名  模块名.功能名
+
+from 包名 import *  模块名.功能名
+
+from 包名.模块名 import 功能名  功能名
+
+from 包名.模块名 import *  功能名
+
+## 第六章 面向对象基础
+### 6.1类与对象
+1.定义：基于类创建对像，万物皆可对象
+#### 6.1.1类的入门
+1.定义类：
+```python
+class 类名:
+       pass#在这里pass只是一个空语句
+
+#创建对象
+
+对象名 = 类名()
+对象名.属性名 = 属性值
+
+#例子
+class Car:
+       def __init__(self,c_eat,c_drink):
+              self.eat = c_eat
+              self.drink = c_drink
+
+c1 = Car("food","water")
+print(c1.__dict__)
+```
+注意：python中是支持动态创建对象属性的
+
+__dict__支持输出所有属性，利用字典的方式进行输出，print(c1.__dict__)会以字典的形式输出出来、
+
+#### 6.1.2实例方法
+1.方法：如果说函数定义在类的外面定义为函数，定义在类的里面为方法
+```python
+class a:
+       def __init__(self):
+              pass
+       def 方法名(self,形参列表):#这个就是python的标准方法
+
+
+```
